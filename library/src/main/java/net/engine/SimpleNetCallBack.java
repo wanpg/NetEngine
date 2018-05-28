@@ -1,6 +1,4 @@
-package com.egeio.net.target;
-
-import com.egeio.net.NetCallBack;
+package net.engine;
 
 /**
  * Created by wangjinpeng on 2017/12/12.

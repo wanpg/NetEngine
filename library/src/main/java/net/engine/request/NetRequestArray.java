@@ -1,10 +1,10 @@
-package com.egeio.net.request;
+package net.engine.request;
 
 import android.support.annotation.NonNull;
 
-import com.egeio.net.JSONConvert;
-import com.egeio.net.NetEngine;
-import com.egeio.net.target.Target;
+import net.engine.JSONConvert;
+import net.engine.NetEngine;
+import net.engine.target.Target;
 
 import java.util.List;
 

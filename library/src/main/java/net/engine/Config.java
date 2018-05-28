@@ -1,4 +1,4 @@
-package com.egeio.net;
+package net.engine;
 
 public abstract class Config {
 

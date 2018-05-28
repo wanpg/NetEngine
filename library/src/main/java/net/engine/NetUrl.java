@@ -1,4 +1,4 @@
-package com.egeio.net;
+package net.engine;
 
 import android.net.Uri;
 import android.text.TextUtils;

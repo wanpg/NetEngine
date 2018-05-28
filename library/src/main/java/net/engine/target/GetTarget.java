@@ -1,8 +1,8 @@
-package com.egeio.net.target;
+package net.engine.target;
 
-import com.egeio.net.NetEngine;
-import com.egeio.net.NetParams;
-import com.egeio.net.NetUrl;
+import net.engine.NetEngine;
+import net.engine.NetParams;
+import net.engine.NetUrl;
 
 import java.util.Map;
 
