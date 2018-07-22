@@ -5,10 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 
 import net.engine.NetEngine;
 import net.engine.NetParams;
+import net.engine.request.NetRequestArray;
+
+import java.util.List;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
                         .api("")
                         .get()
                         .result(String.class)
+                        .asArray()
                         .build())
                 .observable()
                 .subscribeOn(Schedulers.io())
@@ -46,6 +51,23 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onComplete() {
+
+                    }
+                });
+        NetRequestArray<String> stringNetRequestArray = NetEngine.request(
+                NetParams.builder()
+                        .baseUrl("http://www.baidu.com")
+                        .noVersion()
+                        .api("")
+                        .get()
+                        .result(String.class)
+                        .build())
+                .asArray();
+        stringNetRequestArray
+                .observable()
+                .subscribe(new Consumer<List<String>>() {
+                    @Override
+                    public void accept(List<String> strings) throws Exception {
 
                     }
                 });

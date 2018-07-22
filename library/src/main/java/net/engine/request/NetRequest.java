@@ -39,8 +39,8 @@ public class NetRequest<T> {
         return this;
     }
 
-    public NetRequestArray<List<T>> asArray() {
-        NetRequestArray<List<T>> requestArray = new NetRequestArray<>(target);
+    public NetRequestArray<T> asArray() {
+        NetRequestArray<T> requestArray = new NetRequestArray<>(target);
         if (jsonConvert != null) {
             requestArray.json(jsonConvert);
         }

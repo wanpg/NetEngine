@@ -6,6 +6,7 @@ import android.text.TextUtils;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -140,6 +141,21 @@ public final class NetParams<T> {
                 params.result(tClass);
             }
 
+            public ArrayResultBuilder<T> asArray() {
+                return new ArrayResultBuilder<>(params);
+            }
+
+            public NetParams<T> build() {
+                return params;
+            }
+        }
+
+        public static class ArrayResultBuilder<T> extends Builder {
+
+            public ArrayResultBuilder(NetParams params) {
+                super(params);
+            }
+
             public NetParams<T> build() {
                 return params;
             }
@@ -205,6 +221,22 @@ public final class NetParams<T> {
                 params.result(tClass);
             }
 
+
+            public ArrayResultBuilder<T> asArray() {
+                return new ArrayResultBuilder<>(params);
+            }
+
+            public NetParams<T> build() {
+                return params;
+            }
+        }
+
+        public static class ArrayResultBuilder<T> extends Builder {
+
+            public ArrayResultBuilder(NetParams params) {
+                super(params);
+            }
+
             public NetParams<T> build() {
                 return params;
             }
@@ -220,6 +252,7 @@ public final class NetParams<T> {
     private Integer apiVersion = 1;
     private Class<T> resultType;
     private Method method = Method.GET;
+    private boolean asArray = false;
 
     public String getApiUrl() {
         StringBuilder builder = new StringBuilder(getBaseUrl());
@@ -297,6 +330,11 @@ public final class NetParams<T> {
 
     protected NetParams<T> result(Class<T> tClass) {
         this.resultType = tClass;
+        return this;
+    }
+
+    protected NetParams<T> asArray(boolean asArray) {
+        this.asArray = asArray;
         return this;
     }
 
